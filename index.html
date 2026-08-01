@@ -1,10 +1,86 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>My Trivia Website</title>
+    <title>TriviaVerse</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Welcome to My Trivia Website!</h1>
-    <p>My website is live!</p>
+
+<button id="backButton" onclick="goBack()">⬅ Back</button>
+
+
+<div id="home" class="page">
+
+    <h1>🌎 TriviaVerse</h1>
+    <h2>Challenge Your Brain</h2>
+
+    <p>Select a category</p>
+
+    <div id="categories"></div>
+
+</div>
+
+
+
+<div id="topics" class="page hidden">
+
+    <h1 id="categoryTitle"></h1>
+
+    <h2>Select a topic</h2>
+
+    <div id="topicButtons"></div>
+
+</div>
+
+
+
+
+<div id="difficulty" class="page hidden">
+
+    <h1>Select Difficulty</h1>
+
+    <button onclick="startQuiz('Easy')">Easy</button>
+    <button onclick="startQuiz('Medium')">Medium</button>
+    <button onclick="startQuiz('Hard')">Hard</button>
+
+</div>
+
+
+
+
+
+<div id="quiz" class="page hidden">
+
+    <h2 id="number"></h2>
+
+    <h1 id="question"></h1>
+
+    <div id="answers"></div>
+
+    <button onclick="submitAnswer()">Submit</button>
+
+</div>
+
+
+
+
+
+<div id="results" class="page hidden">
+
+    <h1>🎉 Quiz Complete!</h1>
+
+    <h2 id="score"></h2>
+
+    <button onclick="goHome()">🏠 Home</button>
+
+</div>
+
+
+
+<script src="script.js"></script>
+
 </body>
+
 </html>
