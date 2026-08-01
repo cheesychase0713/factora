@@ -7,8 +7,7 @@ let score = 0;
 let selectedAnswer = null;
 
 
-const topics = {
-
+const categories = {
     Sports: [
         "Soccer",
         "Basketball",
@@ -43,77 +42,70 @@ const topics = {
         "Superhero Movies",
         "General Movies"
     ]
+};
+
+
+const questions = [
+    {
+        question: "What sport uses a hoop?",
+        answers: [
+            "Soccer",
+            "Basketball",
+            "Football",
+            "Golf"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "What planet is known as the Red Planet?",
+        answers: [
+            "Earth",
+            "Mars",
+            "Venus",
+            "Jupiter"
+        ],
+        correct: 1
+    },
+
+    {
+        question: "Who was the first President of the United States?",
+        answers: [
+            "George Washington",
+            "Abraham Lincoln",
+            "Thomas Jefferson",
+            "John Adams"
+        ],
+        correct: 0
+    }
+];
+
+
+window.onload = function(){
+
+    let box = document.getElementById("categories");
+
+    for(let item in categories){
+
+        let button = document.createElement("button");
+
+        button.innerHTML = item;
+
+        button.onclick = function(){
+
+            chooseCategory(item);
+
+        };
+
+        box.appendChild(button);
+
+    }
+
+    showBack(false);
 
 };
 
 
-
-let questions = [
-
-{
-question: "What sport uses a hoop and a basketball?",
-answers: [
-"Soccer",
-"Basketball",
-"Baseball",
-"Golf"
-],
-correct: 1
-},
-
-
-{
-question: "Which planet is known as the Red Planet?",
-answers: [
-"Earth",
-"Mars",
-"Jupiter",
-"Venus"
-],
-correct: 1
-},
-
-
-{
-question: "Who was the first President of the United States?",
-answers: [
-"Abraham Lincoln",
-"George Washington",
-"Thomas Jefferson",
-"John Adams"
-],
-correct: 1
-}
-
-];
-
-
-
-// Load categories
-
-let categoryBox = document.getElementById("categories");
-
-
-Object.keys(topics).forEach(function(name){
-
-    let button = document.createElement("button");
-
-    button.innerHTML = name;
-
-    button.onclick = function(){
-
-        chooseCategory(name);
-
-    };
-
-    categoryBox.appendChild(button);
-
-});
-
-
-
-
-// Choose category
 
 function chooseCategory(name){
 
@@ -121,32 +113,31 @@ function chooseCategory(name){
 
     hidePages();
 
-    document.getElementById("topics").style.display = "block";
+    document.getElementById("topics").style.display="block";
 
-    document.getElementById("categoryTitle").innerHTML = name;
+    document.getElementById("categoryTitle").innerHTML=name;
+
+    let box=document.getElementById("topicButtons");
+
+    box.innerHTML="";
 
     showBack(true);
 
 
-    let box = document.getElementById("topicButtons");
+    categories[name].forEach(function(t){
 
-    box.innerHTML = "";
+        let button=document.createElement("button");
 
-
-    topics[name].forEach(function(item){
-
-        let button = document.createElement("button");
-
-        button.innerHTML = item;
+        button.innerHTML=t;
 
 
-        button.onclick = function(){
+        button.onclick=function(){
 
-            topic = item;
+            topic=t;
 
             hidePages();
 
-            document.getElementById("difficulty").style.display = "block";
+            document.getElementById("difficulty").style.display="block";
 
         };
 
@@ -159,23 +150,17 @@ function chooseCategory(name){
 
 
 
-
-
-// Start quiz
-
 function startQuiz(level){
 
-    difficulty = level;
+    difficulty=level;
 
-    questionNumber = 0;
+    questionNumber=0;
 
-    score = 0;
-
+    score=0;
 
     hidePages();
 
-    document.getElementById("quiz").style.display = "block";
-
+    document.getElementById("quiz").style.display="block";
 
     showQuestion();
 
@@ -183,72 +168,56 @@ function startQuiz(level){
 
 
 
-
-
-// Show question
-
 function showQuestion(){
 
-    let q = questions[questionNumber];
+    let q=questions[questionNumber % questions.length];
 
 
-    document.getElementById("number").innerHTML =
-    "Question " + (questionNumber + 1) + "/25";
+    document.getElementById("number").innerHTML=
+    "Question "+(questionNumber+1)+"/25";
 
 
-    document.getElementById("question").innerHTML =
-    q.question;
+    document.getElementById("question").innerHTML=q.question;
 
 
-    let answerBox = document.getElementById("answers");
+    let box=document.getElementById("answers");
 
-    answerBox.innerHTML = "";
+    box.innerHTML="";
 
 
     q.answers.forEach(function(answer,index){
 
+        let button=document.createElement("button");
 
-        let button = document.createElement("button");
+        button.className="answer";
 
-        button.className = "answer";
-
-
-        button.innerHTML =
-        String.fromCharCode(65 + index) + ". " + answer;
+        button.innerHTML=
+        String.fromCharCode(65+index)+". "+answer;
 
 
+        button.onclick=function(){
 
-        button.onclick = function(){
-
-            selectedAnswer = index;
+            selectedAnswer=index;
 
         };
 
 
-        answerBox.appendChild(button);
-
+        box.appendChild(button);
 
     });
-
 
 }
 
 
 
-
-
-// Submit answer
-
 function submitAnswer(){
 
+    let q=questions[questionNumber % questions.length];
 
-    let q = questions[questionNumber];
-
-
-    let buttons = document.querySelectorAll(".answer");
+    let buttons=document.querySelectorAll(".answer");
 
 
-    if(selectedAnswer === q.correct){
+    if(selectedAnswer===q.correct){
 
         score++;
 
@@ -256,14 +225,11 @@ function submitAnswer(){
 
     }
 
-
     else{
-
 
         buttons.forEach(function(button,index){
 
-
-            if(index === q.correct){
+            if(index===q.correct){
 
                 button.classList.add("correct");
 
@@ -275,36 +241,25 @@ function submitAnswer(){
 
             }
 
-
         });
 
 
-
-        setTimeout(function(){
-
-            nextQuestion();
-
-        },3500);
-
+        setTimeout(nextQuestion,3500);
 
     }
-
 
 }
 
 
 
-
-// Next question
-
 function nextQuestion(){
 
     questionNumber++;
 
-    selectedAnswer = null;
+    selectedAnswer=null;
 
 
-    if(questionNumber >= 25){
+    if(questionNumber>=25){
 
         finishQuiz();
 
@@ -320,65 +275,30 @@ function nextQuestion(){
 
 
 
-
-
-// Finish
-
 function finishQuiz(){
 
     hidePages();
 
-    document.getElementById("results").style.display = "block";
+    document.getElementById("results").style.display="block";
 
-
-    document.getElementById("score").innerHTML =
-    "You scored " + score + "/25";
-
+    document.getElementById("score").innerHTML=
+    "You scored "+score+"/25";
 
     showBack(false);
 
 }
 
 
-
-
-
-// Back button
-
-function goBack(){
-
-    hidePages();
-
-
-    if(category !== "" && topic === ""){
-
-        goHome();
-
-    }
-
-    else if(topic !== ""){
-
-        document.getElementById("topics").style.display = "block";
-
-    }
-
-}
-
-
-
-
-
-// Home
 
 function goHome(){
 
     hidePages();
 
-    document.getElementById("home").style.display = "block";
+    document.getElementById("home").style.display="block";
 
-    category = "";
+    category="";
 
-    topic = "";
+    topic="";
 
     showBack(false);
 
@@ -386,15 +306,35 @@ function goHome(){
 
 
 
+function goBack(){
+
+    hidePages();
+
+    if(topic!==""){
+
+        document.getElementById("topics").style.display="block";
+
+        topic="";
+
+    }
+
+    else{
+
+        goHome();
+
+    }
+
+}
 
 
-// Hide all pages
 
 function hidePages(){
 
-    document.querySelectorAll(".page").forEach(function(page){
+    let pages=document.querySelectorAll(".page");
 
-        page.style.display = "none";
+    pages.forEach(function(page){
+
+        page.style.display="none";
 
     });
 
@@ -402,13 +342,9 @@ function hidePages(){
 
 
 
-
-
-// Back button visibility
-
 function showBack(value){
 
-    document.getElementById("backButton").style.display =
-    value ? "block" : "none";
+    document.getElementById("backButton").style.display=
+    value ? "block":"none";
 
 }
