@@ -1,15 +1,22 @@
 body {
     margin: 0;
     min-height: 100vh;
-    background: linear-gradient(135deg, #141e30, #243b55);
+    width: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2, #ff758c);
     color: white;
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
 
 .page {
-    margin-top: 80px;
+    width: 100%;
+    max-width: 900px;
+    padding: 40px;
+    animation: fadeIn 0.5s ease;
 }
 
 
@@ -19,79 +26,178 @@ body {
 
 
 h1 {
-    font-size: 55px;
-    margin-bottom: 10px;
+    font-size: 70px;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 10px black;
 }
 
 
 h2 {
-    font-size: 30px;
+    font-size: 35px;
 }
 
 
 p {
-    font-size: 20px;
+    font-size: 24px;
 }
+
 
 
 button {
-    padding: 15px 30px;
-    margin: 10px;
+
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+
+    padding: 18px 40px;
+    margin: 15px;
+
     border: none;
-    border-radius: 12px;
-    font-size: 18px;
+    border-radius: 20px;
+
+    font-size: 22px;
+
     cursor: pointer;
-    background: white;
-    color: #222;
-    transition: 0.2s;
+
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+
+    transition: 0.25s;
+
 }
+
 
 
 button:hover {
-    transform: scale(1.08);
+
+    transform: translateY(-5px) scale(1.05);
+
+    background: linear-gradient(135deg,#ff512f,#dd2476);
+
 }
 
 
-#backButton {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    display: none;
-}
 
 
 #categories button,
 #topicButtons button {
+
     display: block;
-    width: 300px;
-    margin: 15px auto;
+
+    width: 350px;
+
+    margin: 20px auto;
+
 }
+
+
+
+#backButton {
+
+    position: fixed;
+
+    top: 25px;
+
+    left: 25px;
+
+    background: linear-gradient(135deg,#43e97b,#38f9d7);
+
+    color: black;
+
+    display: none;
+
+}
+
+
 
 
 #answers {
-    margin-top: 20px;
+
+    margin-top: 30px;
+
 }
+
 
 
 .answer {
+
     display: block;
-    width: 350px;
+
+    width: 450px;
+
     margin: 15px auto;
+
+    background: white;
+
+    color: black;
+
 }
+
+
+
+.answer:hover {
+
+    background: #ffe259;
+
+    color: black;
+
+}
+
 
 
 .correct {
-    background: green !important;
-    color: white;
+
+    background: #00ff66 !important;
+
+    color: black !important;
+
 }
+
 
 
 .wrong {
-    background: red !important;
-    color: white;
+
+    background: #ff3333 !important;
+
+    color: white !important;
+
 }
 
 
-#quiz button {
-    margin-top: 20px;
+
+#quiz h1 {
+
+    font-size: 45px;
+
+}
+
+
+
+#quiz button:last-child {
+
+    background: linear-gradient(135deg,#f7971e,#ffd200);
+
+    color: black;
+
+}
+
+
+
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to {
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
 }
