@@ -368,7 +368,7 @@ function nextQuestion(){
 
 
 
-    if(questionNumber >= 25){
+    if(questionNumber >= questions.length)
 
         finishQuiz();
 
@@ -490,7 +490,8 @@ function showBack(value){
     document.getElementById("backButton").style.display =
     value ? "block" : "none";
 
-}const questionBank = {
+
+const questionBank = {
 
 Sports: {
 
@@ -503,90 +504,192 @@ answers:["7","9","11","15"],
 correct:2
 },
 {
-question:"What object is kicked in soccer?",
+question:"What object do players try to kick into the goal?",
 answers:["Ball","Puck","Bat","Ring"],
 correct:0
 },
 {
-question:"What color card removes a player from a soccer game?",
+question:"Which body part cannot normally be used by field players?",
+answers:["Foot","Head","Hand","Chest"],
+correct:2
+},
+{
+question:"What is the person who protects the goal called?",
+answers:["Forward","Defender","Goalkeeper","Captain"],
+correct:2
+},
+{
+question:"What color card means a player is removed from the game?",
 answers:["Blue","Red","Green","White"],
 correct:1
 },
 {
-question:"Which part of the body is mostly used to control the ball?",
-answers:["Feet","Hands","Shoulders","Knees"],
+question:"How long is a normal soccer match?",
+answers:["45 minutes","60 minutes","90 minutes","120 minutes"],
+correct:2
+},
+{
+question:"What shape is a soccer field usually?",
+answers:["Circle","Rectangle","Triangle","Square"],
+correct:1
+},
+{
+question:"Which country is famous for the club FC Barcelona?",
+answers:["Spain","Brazil","Germany","Italy"],
 correct:0
 },
 {
-question:"What is the area where the goalkeeper can use their hands called?",
-answers:["Penalty area","Center circle","Corner","Sideline"],
+question:"What starts each half of a soccer match?",
+answers:["Kickoff","Penalty","Corner","Throw-in"],
+correct:0
+},
+{
+question:"How many goals does the goalkeeper defend?",
+answers:["1","2","3","4"],
+correct:0
+},
+{
+question:"What is a shot from the penalty spot called?",
+answers:["Free kick","Penalty kick","Corner kick","Goal kick"],
+correct:1
+},
+{
+question:"Which sport is also called football in many countries?",
+answers:["Soccer","Basketball","Baseball","Hockey"],
+correct:0
+},
+{
+question:"What equipment protects a soccer player's legs?",
+answers:["Helmet","Shin guards","Gloves","Pads"],
+correct:1
+},
+{
+question:"What happens when the ball goes completely over the sideline?",
+answers:["Throw-in","Goal","Penalty","Corner"],
+correct:0
+},
+{
+question:"How many halves are in a soccer game?",
+answers:["1","2","3","4"],
+correct:1
+},
+{
+question:"Which position usually scores many goals?",
+answers:["Forward","Goalkeeper","Referee","Defender"],
+correct:0
+},
+{
+question:"What person enforces the rules during the game?",
+answers:["Coach","Referee","Owner","Captain"],
+correct:1
+},
+{
+question:"What is the area around the goal called?",
+answers:["Penalty area","Center zone","Safety zone","Goal box"],
+correct:0
+},
+{
+question:"What country won the 2022 men's FIFA World Cup?",
+answers:["Argentina","Brazil","France","Germany"],
+correct:0
+},
+{
+question:"What is a score of zero called in soccer?",
+answers:["Nil","Blank","Nothing","Empty"],
+correct:0
+},
+{
+question:"Which tournament decides the world champion in soccer?",
+answers:["FIFA World Cup","Super Bowl","World Series","NBA Finals"],
+correct:0
+},
+{
+question:"What footwear do soccer players wear?",
+answers:["Cleats","Skates","Boots only","Sandals"],
+correct:0
+},
+{
+question:"What does a referee show for a warning?",
+answers:["Yellow card","Red card","Blue card","Green card"],
+correct:0
+},
+{
+question:"Where does the goalkeeper stand?",
+answers:["Goal","Center circle","Sideline","Corner"],
+correct:0
+},
+{
+question:"What is the main objective of soccer?",
+answers:["Score goals","Hold the ball","Run fastest","Hit opponents"],
 correct:0
 }
 ],
 
 Medium: [
+
 {
-question:"How long is a normal soccer match?",
-answers:["60 minutes","75 minutes","90 minutes","120 minutes"],
-correct:2
-},
-{
-question:"Which country has won the most FIFA World Cups?",
-answers:["Brazil","Spain","England","Portugal"],
+question:"Which nation has won the most men's FIFA World Cups?",
+answers:["Brazil","Germany","France","England"],
 correct:0
 },
 {
-question:"How often are the FIFA World Cups normally held?",
-answers:["Every 2 years","Every 3 years","Every 4 years","Every 5 years"],
+question:"How many minutes are added for stoppage time?",
+answers:["Always 5","Always 10","Varies","Always 15"],
 correct:2
 },
 {
 question:"What does FIFA stand for?",
-answers:["Football International Federation Association","International football organization","Federation of international football associations","Football Institute For Athletes"],
-correct:2
+answers:["International football federation","Football rules group","World soccer team","European league"],
+correct:0
 },
 {
-question:"A soccer field is also called a what?",
-answers:["Court","Pitch","Arena","Diamond"],
+question:"Which player is famous for the 'Hand of God' goal?",
+answers:["Pele","Diego Maradona","Messi","Ronaldo"],
 correct:1
+},
+{
+question:"What club competition is played in Europe?",
+answers:["Champions League","Super Bowl","World Series","Stanley Cup"],
+correct:0
 }
+
 ],
 
 Hard: [
+
 {
-question:"Who scored the famous 'Hand of God' goal?",
-answers:["Lionel Messi","Diego Maradona","Pele","Zinedine Zidane"],
+question:"Which country won the first FIFA World Cup in 1930?",
+answers:["Brazil","Uruguay","Argentina","Italy"],
 correct:1
 },
 {
 question:"Which club has won the most UEFA Champions League titles?",
-answers:["Barcelona","Manchester United","Real Madrid","Liverpool"],
+answers:["Barcelona","Liverpool","Real Madrid","Bayern Munich"],
 correct:2
 },
 {
-question:"What is the maximum number of players a team can substitute during many modern competitions?",
-answers:["1","3","5","10"],
-correct:2
-},
-{
-question:"Which country won the first FIFA World Cup?",
-answers:["Brazil","Uruguay","Argentina","Germany"],
+question:"Who holds the record for most men's international goals?",
+answers:["Messi","Ronaldo","Pele","Maradona"],
 correct:1
 },
 {
 question:"The offside rule mainly prevents what?",
-answers:["Slow play","Unfair positioning","Long shots","Fouls"],
-correct:1
+answers:["Unfair attacking position","Fouls","Long shots","Corner kicks"],
+correct:0
+},
+{
+question:"Which country hosted the 2014 FIFA World Cup?",
+answers:["Brazil","Russia","Qatar","South Africa"],
+correct:0
 }
+
 ]
 
 },
 
-
-
 Basketball: {
 
-Easy:[
+Easy: [
 {
 question:"How many players from one team are on the court?",
 answers:["3","5","7","10"],
@@ -603,27 +706,47 @@ answers:["Goal","Hoop","Net only","Box"],
 correct:1
 },
 {
-question:"Which sport is Michael Jordan famous for?",
-answers:["Football","Basketball","Baseball","Tennis"],
-correct:1
+question:"Which player is famous for wearing number 23?",
+answers:["Michael Jordan","Tom Brady","Pele","Tiger Woods"],
+correct:0
+},
+{
+question:"How many points is a three-pointer worth?",
+answers:["1","2","3","4"],
+correct:2
+},
+{
+question:"How many quarters are in a basketball game?",
+answers:["2","3","4","5"],
+correct:2
+},
+{
+question:"What is it called when a player runs without dribbling?",
+answers:["Traveling","Passing","Shooting","Blocking"],
+correct:0
 },
 {
 question:"What shape is a basketball?",
-answers:["Square","Triangle","Round","Oval"],
-correct:2
+answers:["Square","Round","Triangle","Oval"],
+correct:1
+},
+{
+question:"Which sport is played in the NBA?",
+answers:["Basketball","Football","Soccer","Hockey"],
+correct:0
+},
+{
+question:"What color is a normal basketball?",
+answers:["Orange","Blue","Green","Purple"],
+correct:0
 }
 ],
 
-Medium:[
+Medium: [
 {
 question:"How long is an NBA game?",
 answers:["40 minutes","48 minutes","60 minutes","90 minutes"],
 correct:1
-},
-{
-question:"How many points is a three pointer worth?",
-answers:["1","2","3","4"],
-correct:2
 },
 {
 question:"Who is known as King James?",
@@ -631,18 +754,23 @@ answers:["LeBron James","Kobe Bryant","Stephen Curry","Shaq"],
 correct:0
 },
 {
-question:"What league is the NBA?",
-answers:["Soccer league","Basketball league","Football league","Baseball league"],
+question:"How many teams make the NBA Finals?",
+answers:["1","2","4","8"],
 correct:1
 },
 {
-question:"How many quarters are in an NBA game?",
-answers:["2","3","4","5"],
+question:"What is a double-double?",
+answers:["Two wins","Double points only","Double digits in two stats","Two players"],
 correct:2
+},
+{
+question:"Which team drafted Kobe Bryant?",
+answers:["Lakers","Hornets","Bulls","Celtics"],
+correct:1
 }
 ],
 
-Hard:[
+Hard: [
 {
 question:"Who has won the most NBA championships as a player?",
 answers:["Michael Jordan","Bill Russell","Kobe Bryant","Magic Johnson"],
@@ -654,27 +782,25 @@ answers:["James Naismith","Michael Jordan","Larry Bird","Wilt Chamberlain"],
 correct:0
 },
 {
-question:"Which team drafted Kobe Bryant?",
-answers:["Lakers","Hornets","Bulls","Celtics"],
+question:"Which player is the NBA all-time scoring leader?",
+answers:["LeBron James","Jordan","Curry","Shaq"],
+correct:0
+},
+{
+question:"What team has won the most NBA championships?",
+answers:["Lakers","Celtics","Bulls","Warriors"],
 correct:1
 },
 {
-question:"What is a triple-double?",
-answers:["Three fouls","Three points","Double digits in three stats","Three wins"],
-correct:2
-},
-{
-question:"Who holds the NBA all-time scoring record?",
-answers:["LeBron James","Kareem Abdul-Jabbar","Jordan","Curry"],
+question:"What does MVP stand for?",
+answers:["Most Valuable Player","Most Victory Points","Maximum Value Player","Major Victory Player"],
 correct:0
 }
 ]
 
-}
+},
 
-}
-
-};Sports.Football = {
+Football: {
 
 Easy:[
 {
@@ -683,27 +809,26 @@ answers:["3","5","6","10"],
 correct:2
 },
 {
+question:"Which player usually throws the football?",
+answers:["Quarterback","Kicker","Center","Receiver"],
+correct:0
+},
+{
+question:"What league is the NFL?",
+answers:["Football league","Basketball league","Soccer league","Baseball league"],
+correct:0
+},
+{
 question:"How many teams play in a football game?",
 answers:["1","2","3","4"],
 correct:1
 },
 {
-question:"Which player usually throws the ball?",
-answers:["Quarterback","Kicker","Center","Linebacker"],
-correct:0
-},
-{
 question:"What shape is a football?",
 answers:["Round","Oval","Square","Triangle"],
 correct:1
-},
-{
-question:"What is the NFL?",
-answers:["A football league","A basketball league","A soccer league","A baseball league"],
-correct:0
 }
 ],
-
 
 Medium:[
 {
@@ -717,27 +842,26 @@ answers:["2","3","4","5"],
 correct:2
 },
 {
-question:"What happens after a touchdown?",
-answers:["Faceoff","Extra point attempt","Timeout","Game ends"],
-correct:1
-},
-{
 question:"What is an interception?",
-answers:["A defensive player catches a pass","A touchdown","A kick","A penalty"],
+answers:["A defensive catch","A touchdown","A penalty","A kick"],
 correct:0
 },
 {
 question:"How long is a football field?",
-answers:["50 yards","75 yards","100 yards","150 yards"],
+answers:["50 yards","75 yards","100 yards","120 yards"],
 correct:2
+},
+{
+question:"What happens after a touchdown?",
+answers:["Extra point attempt","Game ends","Timeout","Penalty"],
+correct:0
 }
 ],
-
 
 Hard:[
 {
 question:"Which team has won the most Super Bowls?",
-answers:["Patriots","Cowboys","Chiefs","Packers"],
+answers:["Patriots","Cowboys","Packers","Chiefs"],
 correct:0
 },
 {
@@ -746,28 +870,25 @@ answers:["Tom Brady","Drew Brees","Joe Montana","Peyton Manning"],
 correct:0
 },
 {
-question:"How many downs does a team have to gain 10 yards?",
+question:"How many downs does a team get?",
 answers:["2","3","4","5"],
 correct:2
 },
 {
-question:"What position snaps the ball to the quarterback?",
-answers:["Center","Receiver","Safety","Running back"],
+question:"Which position snaps the ball?",
+answers:["Center","Receiver","Safety","Kicker"],
 correct:0
 },
 {
-question:"What does MVP stand for?",
-answers:["Most Valuable Player","Maximum Victory Point","Most Victory Plays","Major Valuable Person"],
+question:"What does MVP mean?",
+answers:["Most Valuable Player","Most Victory Player","Maximum Value Point","Major Victory Prize"],
 correct:0
 }
-
 ]
 
-};
+},
 
-
-
-Sports["General Sports"] = {
+"General Sports": {
 
 Easy:[
 {
@@ -786,17 +907,41 @@ answers:["Soccer","Hockey","Golf","Baseball"],
 correct:1
 },
 {
-question:"What sport is played in a pool?",
-answers:["Swimming","Golf","Football","Baseball"],
+question:"Which sport is played in a swimming pool?",
+answers:["Swimming","Basketball","Baseball","Golf"],
 correct:0
 },
 {
-question:"Which sport uses a bat?",
-answers:["Baseball","Soccer","Basketball","Hockey"],
+question:"Which sport uses a bat and ball?",
+answers:["Baseball","Soccer","Hockey","Tennis"],
+correct:0
+},
+{
+question:"Which sport has a hoop?",
+answers:["Basketball","Football","Golf","Swimming"],
+correct:0
+},
+{
+question:"Which sport is played on ice?",
+answers:["Hockey","Soccer","Tennis","Golf"],
+correct:0
+},
+{
+question:"A golfer uses what to hit the ball?",
+answers:["Club","Bat","Racket","Stick"],
+correct:0
+},
+{
+question:"A tennis player uses what?",
+answers:["Racket","Bat","Glove","Helmet"],
+correct:0
+},
+{
+question:"Which sport includes a marathon?",
+answers:["Running","Swimming","Golf","Boxing"],
 correct:0
 }
 ],
-
 
 Medium:[
 {
@@ -815,17 +960,41 @@ answers:["Cycling","Running","Swimming","Skiing"],
 correct:0
 },
 {
-question:"Which sport has the Stanley Cup?",
-answers:["Basketball","Hockey","Football","Baseball"],
-correct:1
+question:"Which sport awards the Stanley Cup?",
+answers:["Hockey","Football","Basketball","Baseball"],
+correct:0
 },
 {
-question:"A birdie is used in which sport?",
-answers:["Badminton","Football","Baseball","Golf"],
+question:"The Ryder Cup is associated with which sport?",
+answers:["Golf","Tennis","Soccer","Basketball"],
+correct:0
+},
+{
+question:"How many rings are on the Olympic symbol?",
+answers:["3","4","5","6"],
+correct:2
+},
+{
+question:"Which sport uses a shuttlecock?",
+answers:["Badminton","Tennis","Golf","Soccer"],
+correct:0
+},
+{
+question:"What country hosts Wimbledon?",
+answers:["England","USA","France","Spain"],
+correct:0
+},
+{
+question:"Which sport uses lanes and a track?",
+answers:["Track and field","Hockey","Golf","Boxing"],
+correct:0
+},
+{
+question:"Which sport has the Masters tournament?",
+answers:["Golf","Football","Basketball","Baseball"],
 correct:0
 }
 ],
-
 
 Hard:[
 {
@@ -844,16 +1013,44 @@ answers:["60","100","180","200"],
 correct:2
 },
 {
-question:"Which country has won the most men's World Cups?",
+question:"Which country has won the most men's FIFA World Cups?",
 answers:["Brazil","Germany","France","Spain"],
 correct:0
 },
 {
-question:"What sport is the Ryder Cup associated with?",
-answers:["Golf","Tennis","Soccer","Basketball"],
+question:"What sport is the Davis Cup connected to?",
+answers:["Tennis","Golf","Soccer","Hockey"],
+correct:0
+},
+{
+question:"Which country invented basketball?",
+answers:["USA","Canada","England","France"],
+correct:1
+},
+{
+question:"What is the maximum break in snooker?",
+answers:["100","147","200","250"],
+correct:1
+},
+{
+question:"Which athlete is famous for the 'Lightning Bolt' nickname?",
+answers:["Usain Bolt","Phelps","Jordan","Messi"],
+correct:0
+},
+{
+question:"What sport is the America's Cup associated with?",
+answers:["Sailing","Running","Golf","Tennis"],
+correct:0
+},
+{
+question:"Which country has hosted the most Summer Olympics?",
+answers:["USA","France","China","Japan"],
 correct:0
 }
-
 ]
+
+}
+
+}
 
 };
